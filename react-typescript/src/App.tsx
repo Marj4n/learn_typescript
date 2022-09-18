@@ -8,6 +8,9 @@ import { Person } from "./components/typingProps/Person";
 import { PersonList } from "./components/typingProps/PersonList";
 import { Status } from "./components/advancedProps/Status";
 import { Container } from "./components/styleProps/Container";
+import { LoggedIn } from "./components/state/LoggedIn";
+import { User } from "./components/state/User";
+import { Counter } from "./components/state/useReducer/Counter";
 
 function App() {
   const personName = {
@@ -47,8 +50,11 @@ function App() {
       />
       <Input value="" handleChange={(event) => console.log(event)} /> */}
       <Container styles={{ border: "1px solid black", padding: "1rem" }}>
-        WOI
+        Apa coba
       </Container>
+      {/* <LoggedIn /> */}
+      <User name="rizeq" email="rizeq@gmail.com"/>
+      <Counter decrement={20} increment={20}/>
     </div>
   );
 }

@@ -9,8 +9,18 @@ import { PersonList } from "./components/typingProps/PersonList";
 import { Status } from "./components/advancedProps/Status";
 import { Container } from "./components/styleProps/Container";
 import { LoggedIn } from "./components/state/LoggedIn";
-import { User } from "./components/state/User";
-import { Counter } from "./components/state/useReducer/Counter";
+// import { User } from "./components/state/User"; //state
+// import { Counter } from "./components/state/useReducer/Counter"; //state
+import { Box } from "./components/context/Box";
+import { ThemeContextProvider } from "./components/context/ThemeContext";
+import { UserContextProvider } from "./components/context/UserContext";
+import { User } from "./components/context/User"; // context
+import { DomRef } from "./components/ref/DomRef";
+import { MutableRef } from "./components/ref/MutableRef";
+import { Counter } from "./components/class/Counter";
+import { Private } from "./components/auth/Private";
+import { Profile } from "./components/auth/Profile";
+import { List } from "./components/generics/List";
 
 function App() {
   const personName = {
@@ -53,8 +63,24 @@ function App() {
         Apa coba
       </Container>
       {/* <LoggedIn /> */}
-      <User name="rizeq" email="rizeq@gmail.com"/>
-      <Counter decrement={20} increment={20}/>
+      {/* <User name="rizeq" email="rizeq@gmail.com" />  //state */}
+      {/* <Counter decrement={20} increment={20} /> //state */}
+      <Counter message="The count value is" />
+      <ThemeContextProvider>
+        <Box />
+      </ThemeContextProvider>
+      <UserContextProvider>
+        <User />
+      </UserContextProvider>
+      <MutableRef />
+      <Private isLoggedIn={true} component={Profile} />
+      {/* <div>
+        <List
+          items={["Jokowi", "Soeharto", "Megawati"]}
+          onClick={(item) => console.log(item)}
+        />
+        <List items={[1, 2, 3]} onClick={(item) => console.log(item)} />
+      </div> */}
     </div>
   );
 }
